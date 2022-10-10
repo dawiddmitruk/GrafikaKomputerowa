@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Box?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import com.dlsc.formsfx.view.controls.SimpleRadioButtonControl?>
+<?import org.controlsfx.control.SegmentedButton?>
+<?import net.synedra.validatorfx.GraphicDecorationStackPane?>
+<?import javafx.scene.Group?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="dd.grafikakomputerowa1.MainController">
+    <padding>
+        <Insets topRightBottomLeft="20"/>
+    </padding>
+
+    <top>
+        <HBox fx:id="top">
+            <padding>
+                <Insets bottom="10"/>
+            </padding>
+
+            <Button text="Line" onAction="#drawLines"/>
+            <Button text="Rectangle" onAction="#drawRectangles"/>
+            <Button text="Circle" onAction="#drawCircles"/>
+        </HBox>
+    </top>
+    <center>
+        <fx:include source="drawing-area.fxml" fx:id="drawingArea"/>
+    </center>
+</BorderPane>
