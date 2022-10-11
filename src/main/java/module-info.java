@@ -10,6 +10,8 @@ module dd.grafikakomputerowa1 {
 	requires org.kordamp.bootstrapfx.core;
 //	requires eu.hansolo.tilesfx;
 	requires lombok;
+	requires org.eclipse.collections.api;
+	requires org.eclipse.collections.impl;
 	
 	opens dd.grafikakomputerowa1 to javafx.fxml;
 	exports dd.grafikakomputerowa1;

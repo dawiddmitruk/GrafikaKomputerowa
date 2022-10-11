@@ -6,12 +6,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 
-@RequiredArgsConstructor
-public abstract class AbstractDrawingAreaMode implements DrawingAreaMode {
+public abstract class MultistageDrawingAreaMode extends BasicDrawingAreaMode {
 	
-	protected final DrawingAreaController controller;
 	@Setter(AccessLevel.PROTECTED)
 	private DrawingAreaMode stage;
+	
+	
+	protected MultistageDrawingAreaMode(DrawingAreaController controller) {
+		super(controller);
+	}
+	
 	
 	@Override
 	public void onMouseClicked(MouseEvent event) {
@@ -38,7 +42,7 @@ public abstract class AbstractDrawingAreaMode implements DrawingAreaMode {
 		stage.onMouseReleased(event);
 	}
 	
-	protected abstract static class DrawingStage implements DrawingAreaMode {
+	protected abstract static class StageOfDrawing implements DrawingAreaMode {
 		
 		@Override
 		public void onMouseClicked(MouseEvent event) {}

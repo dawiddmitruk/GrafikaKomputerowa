@@ -18,31 +18,12 @@ public class MainController {
 	
 	@FXML
 	protected void drawLines(ActionEvent actionEvent) {
-	
-//		drawingAreaController.setClickActionImpl(event -> {
-//			if (event.getClickCount() != 1) {
-//				System.out.println("double click");
-//				return;
-//			}
-//
-//			var x = event.getX();
-//			var y = event.getY();
-//
-//			var target = event.getTarget();
-//			if (target instanceof Pane) {
-//				drawingAreaController.addElement(new Circle(x, y, 1));
-//				System.out.println("pane click!");
-//
-//				return;
-//			}
-//
-//
-//			System.out.println("not pane");
-//		});
+		drawingAreaController.changeModeTo(DrawingLinesMode.class);
 	}
 	
 	@FXML
 	protected void drawRectangles(ActionEvent actionEvent) {
+		drawingAreaController.changeModeTo(DrawingRectanglesMode.class);
 	}
 	
 	@FXML

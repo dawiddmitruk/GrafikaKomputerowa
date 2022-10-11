@@ -49,6 +49,9 @@ dependencies {
         exclude(group: 'org.openjfx')
     }
     
+    implementation 'org.eclipse.collections:eclipse-collections-api:11.1.0'
+    implementation 'org.eclipse.collections:eclipse-collections:11.1.0'
+    
     implementation 'org.projectlombok:lombok:1.18.24'
     
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
