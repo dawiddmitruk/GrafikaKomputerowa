@@ -16,6 +16,9 @@
 <?import org.controlsfx.control.SegmentedButton?>
 <?import net.synedra.validatorfx.GraphicDecorationStackPane?>
 <?import javafx.scene.Group?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Orientation?>
+<?import com.sun.javafx.scene.control.DoubleField?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="dd.grafikakomputerowa1.MainController">
     <padding>
@@ -23,7 +26,7 @@
     </padding>
 
     <top>
-        <HBox fx:id="top">
+        <HBox fx:id="top" spacing="5">
             <padding>
                 <Insets bottom="10"/>
             </padding>
@@ -31,6 +34,14 @@
             <Button text="Line" onAction="#drawLines"/>
             <Button text="Rectangle" onAction="#drawRectangles"/>
             <Button text="Circle" onAction="#drawCircles"/>
+
+            <Separator orientation="VERTICAL">
+                <padding>
+                    <Insets right="10" left="10"/>
+                </padding>
+            </Separator>
+
+            <Button text="Move" onAction="#moveObjects"/>
         </HBox>
     </top>
     <center>

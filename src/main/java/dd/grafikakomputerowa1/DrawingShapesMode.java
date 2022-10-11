@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.function.Consumer;
 
 
-public abstract class DrawingShapeMode<T extends Shape> extends MultistageDrawingAreaMode {
+public abstract class DrawingShapesMode<T extends Shape> extends MultistageDrawingAreaMode {
 	
 	private final StageOne stageOne = stageOne();
 	private final StageTwo stageTwo = stageTwo();
@@ -16,7 +16,7 @@ public abstract class DrawingShapeMode<T extends Shape> extends MultistageDrawin
 	protected Consumer<T> configurer;
 	protected T currentlyDrawn;
 	
-	protected DrawingShapeMode(DrawingAreaController controller, Consumer<T> configurer) {
+	protected DrawingShapesMode(DrawingAreaController controller, Consumer<T> configurer) {
 		super(controller);
 		
 		this.configurer = configurer;
@@ -57,7 +57,7 @@ public abstract class DrawingShapeMode<T extends Shape> extends MultistageDrawin
 		public final void onMouseReleased(MouseEvent event) {
 			setStage(stageOne);
 		}
-		int i;
+		
 		@Override
 		public final void onMouseDragged(MouseEvent event) {
 			var x = event.getX();

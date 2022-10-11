@@ -4,14 +4,12 @@ import javafx.scene.shape.Line;
 import org.eclipse.collections.impl.block.factory.Procedures;
 
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 
-public class DrawingLinesMode extends DrawingShapeMode<Line> {
+public class DrawingLinesMode extends DrawingShapesMode<Line> {
 	
 	public DrawingLinesMode(DrawingAreaController controller) {
 		this(controller, Procedures.noop());
-		
 	}
 	
 	public DrawingLinesMode(DrawingAreaController controller, Consumer<Line> configurer) {

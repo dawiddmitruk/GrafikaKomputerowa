@@ -6,7 +6,7 @@ import org.eclipse.collections.impl.block.factory.Procedures;
 import java.util.function.Consumer;
 
 
-public class DrawingRectanglesMode extends DrawingShapeMode<Rectangle> {
+public class DrawingRectanglesMode extends DrawingShapesMode<Rectangle> {
 	
 	public DrawingRectanglesMode(DrawingAreaController controller) {
 		this(controller, Procedures.noop());

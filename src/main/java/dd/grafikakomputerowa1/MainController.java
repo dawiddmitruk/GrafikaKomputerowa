@@ -28,6 +28,12 @@ public class MainController {
 	
 	@FXML
 	protected void drawCircles(ActionEvent actionEvent) {
+		drawingAreaController.changeModeTo(DrawingCirclesMode.class);
+	}
+	
+	@FXML
+	protected void moveObjects(ActionEvent actionEvent) {
+	
 	}
 	
 }
