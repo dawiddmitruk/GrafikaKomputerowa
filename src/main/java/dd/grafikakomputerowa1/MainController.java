@@ -33,7 +33,7 @@ public class MainController {
 	
 	@FXML
 	protected void moveObjects(ActionEvent actionEvent) {
-	
+		drawingAreaController.changeModeTo(MovingShapesMode.class);
 	}
 	
 }

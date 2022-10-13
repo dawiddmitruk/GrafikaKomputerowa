@@ -2,7 +2,6 @@ package dd.grafikakomputerowa1;
 
 import javafx.scene.input.MouseEvent;
 import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 

@@ -18,59 +18,36 @@ public class DrawingRectanglesMode extends DrawingShapesMode<Rectangle> {
 	
 	@Override
 	protected StageOne stageOne() {
-		return new StageOne() {
+		return new DrawingStageOne() {
 			@Override
 			protected Rectangle setupNewShape(double x, double y) {
-				return new DrawnRectangle(x, y);
+				return new Rectangle(x, y, 0, 0);
 			}
 		};
 	}
 	
 	@Override
 	protected StageTwo stageTwo() {
-		return new StageTwo() {
+		return new DrawingStageTwo() {
 			@Override
 			protected void adjustToCursorPosition(Rectangle shape, double x, double y) {
-				if (shape instanceof DrawnRectangle r) {
-					r.adjustToCursorPosition(x, y);
+				if (x >= originX) {
+					shape.setX(originX);
+					shape.setWidth(x - originX);
+				} else {
+					shape.setX(x);
+					shape.setWidth(originX - x);
+				}
+				
+				if (y >= originY) {
+					shape.setY(originY);
+					shape.setHeight(y - originY);
+				} else {
+					shape.setY(y);
+					shape.setHeight(originY - y);
 				}
 			}
 		};
-	}
-	
-	private static class DrawnRectangle extends Rectangle {
-		
-		private final double originalX;
-		private final double originalY;
-		
-		
-		private DrawnRectangle(double x, double y) {
-			super(x, y, 0, 0);
-			
-			originalX = x;
-			originalY = y;
-		}
-		
-		
-		private void adjustToCursorPosition(double x, double y) {
-			if (x >= originalX) {
-				setX(originalX);
-				setWidth(x - originalX);
-			} else {
-				setX(x);
-				setWidth(originalX - x);
-			}
-			
-			if (y >= originalY) {
-				setY(originalY);
-				setHeight(y - originalY);
-			} else {
-				setY(y);
-				setHeight(originalY - y);
-			}
-			
-		}
-		
 	}
 	
 }

@@ -1,7 +1,6 @@
 package dd.grafikakomputerowa1;
 
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 import org.eclipse.collections.impl.block.factory.Procedures;
 
 import java.util.function.Consumer;
@@ -20,47 +19,25 @@ public class DrawingCirclesMode extends DrawingShapesMode<Circle> {
 	
 	@Override
 	protected StageOne stageOne() {
-		return new StageOne() {
+		return new DrawingStageOne() {
 			@Override
 			protected Circle setupNewShape(double x, double y) {
-				return new DrawnCircle(x, y);
+				return new Circle(x, y, 0);
 			}
 		};
 	}
 	
 	@Override
 	protected StageTwo stageTwo() {
-		return new StageTwo() {
+		return new DrawingStageTwo() {
 			@Override
 			protected void adjustToCursorPosition(Circle shape, double x, double y) {
-				if (shape instanceof DrawnCircle c) {
-					c.adjustToCursorPosition(x, y);
-				}
+				shape.setCenterX((originX + x) / 2);
+				shape.setCenterY((originY + y) / 2);
+				
+				shape.setRadius(Math.hypot((x - originX) / 2, (y - originY) / 2));
 			}
 		};
 	}
-	
-	private static class DrawnCircle extends Circle {
-		
-		
-		private final double originalX;
-		private final double originalY;
-		
-		
-		private DrawnCircle(double x, double y) {
-			super(x, y, 0);
-			
-			originalX = x;
-			originalY = y;
-		}
-		
-		private void adjustToCursorPosition(double x, double y) {
-			setCenterX((originalX + x) / 2);
-			setCenterY((originalY + y) / 2);
-			
-			setRadius(Math.hypot((x - originalX) / 2, (y - originalY) / 2));
-		}
-		
-	}
-	
+
 }

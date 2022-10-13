@@ -7,10 +7,7 @@ import lombok.Setter;
 import java.util.function.Consumer;
 
 
-public abstract class DrawingShapesMode<T extends Shape> extends MultistageDrawingAreaMode {
-	
-	private final StageOne stageOne = stageOne();
-	private final StageTwo stageTwo = stageTwo();
+public abstract class DrawingShapesMode<T extends Shape> extends BasicPressDragReleaseMode {
 	
 	@Setter
 	protected Consumer<T> configurer;
@@ -20,18 +17,12 @@ public abstract class DrawingShapesMode<T extends Shape> extends MultistageDrawi
 		super(controller);
 		
 		this.configurer = configurer;
-		
-		setStage(stageOne);
 	}
 	
-	protected abstract StageOne stageOne();
-	
-	protected abstract StageTwo stageTwo();
-	
-	protected abstract class StageOne extends StageOfDrawing {
+	protected abstract class DrawingStageOne extends StageOne {
 		
 		@Override
-		public final void onMousePressed(MouseEvent event) {
+		protected final boolean onPressDragReleaseStarted(MouseEvent event) {
 			var x = event.getX();
 			var y = event.getY();
 			var newShape = (T) null;
@@ -44,22 +35,21 @@ public abstract class DrawingShapesMode<T extends Shape> extends MultistageDrawi
 			
 			currentlyDrawn = newShape;
 			
-			setStage(stageTwo);
+			return true;
 		}
 		
 		protected abstract T setupNewShape(double x, double y);
-		
 	}
 	
-	protected abstract class StageTwo extends StageOfDrawing {
+	protected abstract class DrawingStageTwo extends StageTwo {
 		
 		@Override
-		public final void onMouseReleased(MouseEvent event) {
-			setStage(stageOne);
+		protected void onPressDragReleaseEnded(MouseEvent event) {
+			currentlyDrawn = null;
 		}
 		
 		@Override
-		public final void onMouseDragged(MouseEvent event) {
+		public final void onMousePositionChanged(MouseEvent event) {
 			var x = event.getX();
 			var y = event.getY();
 			
