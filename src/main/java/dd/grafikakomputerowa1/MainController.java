@@ -1,19 +1,29 @@
 package dd.grafikakomputerowa1;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.layout.*;
-import javafx.scene.shape.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 
 
 public class MainController {
 	
-	public HBox top;
+	@FXML
+	private HBox top;
+	@FXML
+	private BorderPane drawingArea;
 	
-	public BorderPane drawingArea;
+	@FXML
+	private DrawingAreaController drawingAreaController;
 	
-	public DrawingAreaController drawingAreaController;
+	public void clear(ActionEvent event) {
+		drawingAreaController.clear();
+	}
+	
+	@FXML
+	protected void drawCurve(ActionEvent event) {
+		drawingAreaController.changeModeTo(DrawingCurvesMode.class);
+	}
 	
 	
 	@FXML

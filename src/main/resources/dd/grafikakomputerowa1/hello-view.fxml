@@ -34,6 +34,7 @@
             <Button text="Line" onAction="#drawLines"/>
             <Button text="Rectangle" onAction="#drawRectangles"/>
             <Button text="Circle" onAction="#drawCircles"/>
+            <Button text="Bézier curve" onAction="#drawCurve"/>
 
             <Separator orientation="VERTICAL">
                 <padding>
@@ -42,6 +43,7 @@
             </Separator>
 
             <Button text="Move" onAction="#moveObjects"/>
+            <Button text="Clear" onAction="#clear"/>
         </HBox>
     </top>
     <center>

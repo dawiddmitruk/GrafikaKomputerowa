@@ -58,6 +58,12 @@ public abstract class MultistageDrawingAreaMode extends BasicDrawingAreaMode {
 		@Override
 		public void onMouseReleased(MouseEvent event) {}
 		
+		@Override
+		public void startSession() {}
+		
+		@Override
+		public void endSession() {}
+		
 	}
 	
 }

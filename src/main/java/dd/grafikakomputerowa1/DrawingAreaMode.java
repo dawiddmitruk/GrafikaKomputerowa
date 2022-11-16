@@ -16,4 +16,8 @@ public interface DrawingAreaMode {
 	void onMouseReleased(MouseEvent event);
 	
 	
+	void startSession();
+	
+	void endSession();
+	
 }
